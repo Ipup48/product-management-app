@@ -1,12 +1,15 @@
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
+import { Product,connectDB } from "./db.js";
 dotenv.config();
 const PORT = process.env.BACKEND_PORT;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+connectDB();
 
 app.get("/",(req,res)=>{
     return res
