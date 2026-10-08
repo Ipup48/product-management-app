@@ -1,23 +1,20 @@
-import { useState } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router"
 
-import "./App.css";
+import AddProductPage from "./pages/AddProductPage.jsx"
+import EditProductPage from "./pages/EditProductPage.jsx"
+import ProductPage from "./pages/ProductPage.jsx"
 
 function App() {
   return (
-    <div className="card bg-base-100 w-96 shadow-sm p-4">
-      <div className="collapse collapse-arrow bg-base-100 border-base-300 border">
-        {/* ใส่ checkbox เพื่อควบคุมการเปิด-ปิด */}
-        <input type="checkbox" />
-        <div className="collapse-title font-semibold">
-          How do I create an account?
-        </div>
-        <div className="collapse-content text-sm">
-          Click the "Sign Up" button in the top right corner and follow the
-          registration process.
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/product" replace />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product/new" element={<AddProductPage />} />
+        <Route path="/product/:id/edit" element={<EditProductPage />} />
+        <Route path="*" element={<Navigate to="/product" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
-
+};
 export default App;
