@@ -19,7 +19,7 @@ function ProductForm({
       <div className="card-body p-5 sm:p-6">
         <div className="mb-2 flex items-center gap-3">
           <div className="rounded-xl bg-primary/10 p-2 text-primary">
-            {editingId ? <Pencil className="size-5" /> : <PlusCircle className="size-5" />}
+            <PlusCircle className="size-5" />
           </div>
           <div>
             <h2 className="card-title text-xl">
@@ -41,30 +41,26 @@ function ProductForm({
             <input
               className="input input-bordered w-full"
               type="text"
-              value={name || ""}
+              value={name}
               onChange={(event) => onNameChange(event.target.value)}
               placeholder="เช่น Gaming keyboard"
-              required
             />
           </label>
           <label className="form-control w-full">
             <span className="label-text mb-2 font-medium">ราคา (บาท)</span>
             <input
               className="input input-bordered w-full"
-              type="number"
-              min="0"
-              step="any"
-              value={price || ""}
+              type="text"
+              value={price}
               onChange={(event) => onPriceChange(event.target.value)}
               placeholder="เช่น 1500"
-              required
             />
           </label>
           <label className="form-control w-full">
             <span className="label-text mb-2 font-medium">รายละเอียด</span>
             <textarea
               className="textarea textarea-bordered w-full"
-              value={description || ""}
+              value={description}
               onChange={(event) => onDescriptionChange(event.target.value)}
               placeholder="รายละเอียดสินค้าเพิ่มเติม"
               rows="3"
@@ -72,34 +68,13 @@ function ProductForm({
           </label>
           <label className="form-control w-full">
             <span className="label-text mb-2 font-medium">URL รูปภาพ</span>
-            <div className="flex items-center gap-3">
-              <input
-                className="input input-bordered w-full"
-                type="url"
-                value={image || ""}
-                onChange={(event) => onImageChange(event.target.value)}
-                placeholder="https://example.com/product.jpg"
-              />
-              {image && (
-                <div className="avatar shrink-0">
-                  <div className="size-12 rounded-lg border border-base-300 overflow-hidden bg-base-200">
-                    <img
-                      src={image}
-                      alt="Preview"
-                      className="size-full object-cover"
-                      onError={(e) => {
-                        e.target.style.display = "none";
-                      }}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-            {image && (
-              <span className="text-xs text-base-content/50 mt-1">
-                ตัวอย่างรูปภาพขนาดกะทัดรัด (48x48 px)
-              </span>
-            )}
+            <input
+              className="input input-bordered w-full"
+              type="url"
+              value={image}
+              onChange={(event) => onImageChange(event.target.value)}
+              placeholder="https://example.com/product.jpg"
+            />
           </label>
           <div className="flex flex-col gap-2 md:col-span-2 md:flex-row md:justify-end">
             <button

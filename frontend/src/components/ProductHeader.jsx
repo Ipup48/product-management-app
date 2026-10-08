@@ -3,8 +3,8 @@ import { Package } from "lucide-react";
 
 const ProductHeader = () => {
   return (
-    <header className="bg-primary rounded-box px-5 py-7 text-primary-content shadow-xl sm:px-8">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+    <header className="hero-panel rounded-box px-5 py-7 text-primary-content shadow-xl sm:px-8">
+      <div className="flex flex-col gap-6 sm:flex-row sm:item-end sm:justify-between">
         <div>
           <div className="mb-3 flex items-center gap-3">
             <div className="grid size-12 place-items-center rounded-2xl bg-white/15 ring-1 ring-white">
@@ -14,7 +14,7 @@ const ProductHeader = () => {
               Product
             </span>
           </div>
-          <h1 className="text-2xl font-bold tracking-tight sm:text-4xl ">
+          <h1 className="text-2xl font-bold tracking-tight sm:text-4xl">
             Product Management System
           </h1>
           <p className="mt-2 max-w-xl text-sm text-primary-content/75 sm:text-base">
