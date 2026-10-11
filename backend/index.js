@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/database.js";
 import productRouter from "./router/productRouter.js";
 dotenv.config();
+const databaseUrl = process.env.DATABASE_URL_UNPOOLED;
 const PORT = process.env.BACKEND_PORT;
 const app = express();
 app.use(cors());
